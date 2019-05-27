@@ -34,7 +34,7 @@ class CD extends Model
 
     public function getOne($id)
     {
-        return $this->select("SELECT * FROM cd as cd INNER JOIN artists as a ON a.id = cd.artist_id", ['cd.id' => $id])[0] ?? [];
+        return $this->select("SELECT *, cd.id as id FROM cd as cd INNER JOIN artists as a ON a.id = cd.artist_id", ['cd.id' => $id])[0] ?? [];
     }
 
     public function save(array $data): bool
